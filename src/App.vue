@@ -27,7 +27,7 @@ function handleActiveChange(index: number): void {
 
   <Transition appear appear-active-class="fade-enter-up">
     <section class="container-lg accordion">
-      <div class="row row-cols-lg-3 gy-3 g-lg-5 accordion__container">
+      <div class="row row-cols-md-2 row-cols-lg-3 gy-3 g-lg-5 accordion__container">
         <AccordionCard v-for="(card, index) in cards" 
           :title="card.title" 
           :content="card.content" 
