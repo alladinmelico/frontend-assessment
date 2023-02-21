@@ -12,9 +12,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --primary-color: #41B883;
+  --secondary-color: #34495E;
 }
 
 ::selection {
   background: black;
   color: white;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.icons {
+  height: 1.5rem;
+  width: 1.5rem;
 }

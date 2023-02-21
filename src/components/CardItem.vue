@@ -14,11 +14,11 @@ defineEmits<{ (e: "button-clicked", id: number): void }>()
 
 <template>
   <div class="gy-5">
-    <div class="accordion__card">
+    <div class="card-item__card">
       <img :src="image || 'https://via.placeholder.com/400x300'" :alt="title" />
-      <div class="accordion__card__content">
-        <div v-html="content" :class="isActive || 'accordion__card__content--inactive'"></div>
-        <div v-if="!isActive" class="accordion__card__content--fade"></div>
+      <div class="card-item__card__content">
+        <div v-html="content" :class="isActive || 'card-item__card__content--inactive'"></div>
+        <div v-if="!isActive" class="card-item__card__content--fade"></div>
       </div>
       <button type="button" @click="$emit('button-clicked', index)">
         {{ isActive ? "Close" : "Read More" }}
@@ -28,7 +28,7 @@ defineEmits<{ (e: "button-clicked", id: number): void }>()
 </template>
 
 <style scoped lang="scss">
-.accordion__card {
+.card-item__card {
   height: 100%;
   min-width: 250px;
   padding: 1rem;

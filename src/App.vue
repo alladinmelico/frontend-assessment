@@ -1,118 +1,100 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import AccordionCard from './components/AccordionCard.vue'
-import cards from './assets/data.json'
+import { ref, computed } from 'vue'
+import FirstExercisePage from './pages/FirstExercisePage.vue'
+import SecondExercisePage from './pages/SecondExercisePage.vue'
 
-const activeCardIndex = ref(0)
+const routes = new Map()
+routes.set('first-exercise', FirstExercisePage)
+routes.set('second-exercise', SecondExercisePage)
 
-function handleActiveChange(index: number): void {
-  activeCardIndex.value = index === activeCardIndex.value ? -1 : index
-}
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes.get(currentPath.value.slice(1))
+})
 </script>
 
 <template>
-  <section class="container-fluid header">
-    <picture class="header__banner">
-      <source media="(max-width: 420px)" srcset="https://via.placeholder.com/600x600" />
-      <source media="(max-width: 720px)" srcset="https://via.placeholder.com/1920x650" />
-      <img src="https://via.placeholder.com/1920x650" alt="Placeholder image" />
-    </picture>
-    <Transition appear appear-active-class="fade-in">
-      <div class="header__text">
-        <h1>Hello Developer!</h1>
-        <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h2>
+  <section class="nav">
+    <div class="nav__bar">
+      <div class="nav__bar__title">
+        <strong>MindArc's</strong>
+        <h1><a href="https://github.com/mindarc/frontend-assessment"> Frontend Developer Assessment</a></h1>
       </div>
-    </Transition>
+      <div class="nav__bar__links">
+        <a href="/#first-exercise" class="nav__bar__links__item"
+          :class="currentPath === '#first-exercise' && 'nav__bar__links--active'">Exercise 1</a>
+        <a href="/#second-exercise" class="nav__bar__links__item"
+          :class="currentPath === '#second-exercise' && 'nav__bar__links--active'">Exercise 2</a>
+      </div>
+    </div>
   </section>
-
-  <Transition appear appear-active-class="fade-enter-up">
-    <section class="container-lg accordion">
-      <div class="row row-cols-md-2 row-cols-lg-3 gy-3 g-lg-5 accordion__container">
-        <AccordionCard v-for="(card, index) in cards" 
-          :title="card.title" 
-          :content="card.content" 
-          :index="index"
-          :is-active="activeCardIndex === index" 
-          @button-clicked="handleActiveChange"
-        />
-      </div>
-    </section>
-  </Transition>
+  <component :is="currentView" />
 </template>
 
 <style scoped lang="scss">
 #app {
-  margin: 0 auto;
   text-align: center;
 }
 
-.header {
-  padding: 0;
-  position: relative;
+.nav {
+  position: absolute;
+  min-height: 100px;
+  width: 100%;
+  z-index: 99;
 
-  &__banner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-
-    img {
-      object-fit: cover;
-      height: auto;
-      width: 100%;
-    }
-  }
-
-  &__text {
-    text-align: center;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-
-    h1 {
-      font-size: 4rem;
-      font-weight: 700;
-    }
-  }
-}
-
-.accordion {
-  padding: 2rem 1.5rem 2rem 1.5rem;
-
-  &__container {
-    justify-content: center;
-  }
-}
-
-.fade-enter-up {
-  animation: fade-enter-up 2s ease-in-out;
-}
-
-.fade-in {
-  animation: fade-in 1s ease-in-out;
-}
-
-@keyframes fade-enter-up {
-  from {
-    opacity: 50;
-    transform: translateY(50%)
-  }
-
-  to {
-    opacity: 100;
+  &:hover .nav__bar {
     transform: translateY(0);
   }
-}
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
+  &__bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transform: translateY(-100%);
+    transition: transform .5s cubic-bezier(.4, 0, .2, 1);
+    background-color: var(--secondary-color);
+    transform: translateY(-100%);
 
-  to {
-    opacity: 1;
+    &__title {
+      color: white;
+
+      a {
+        text-decoration: none;
+        color: var(--primary-color);
+      }
+    }
+
+    &__links {
+      display: flex;
+
+      &__item {
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 0.5rem;
+        border: 2px solid rgb(45, 45, 45);
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 900;
+
+        &:hover {
+          border-color: var(--primary-color);
+        }
+      }
+
+      &--active {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        border-color: white;
+      }
+    }
   }
-}
-</style>
+}</style>
