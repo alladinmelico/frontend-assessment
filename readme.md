@@ -5,6 +5,7 @@
 1. `yarn dev`
 
 ## ⚡️ Demo
+### Exercise 1
 **📱 Mobile**
 ![mobile recording](https://user-images.githubusercontent.com/40887666/220350484-0fc2633e-065d-4dfb-813d-7d394407c9bc.gif)
 
