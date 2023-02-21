@@ -19,34 +19,34 @@
 
 <style scoped lang="scss">
 .header {
-   padding: 0;
-   position: relative;
+  padding: 0;
+  position: relative;
 
-   &__banner {
-     width: 100%;
-     height: 100%;
-     display: flex;
+  &__banner {
+    width: 100%;
+    height: 100%;
+    display: flex;
 
-     img {
-       object-fit: cover;
-       height: auto;
-       width: 100%;
-     }
-   }
+    img {
+      object-fit: cover;
+      height: auto;
+      width: 100%;
+    }
+  }
 
-   &__text {
-     text-align: center;
-     color: white;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     -webkit-transform: translate(-50%, -50%);
+  &__text {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 
-     h1 {
-       font-size: 4rem;
-       font-weight: 700;
-     }
-   }
- }
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+  }
+}
 </style>

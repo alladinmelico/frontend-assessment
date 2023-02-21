@@ -40,8 +40,9 @@ onUnmounted(() => {
     </div>
   </section>
   <section v-else class="container">
-    <div class="tabs"> 
-      <div v-for="(item, index) in data" class="tabs__item" :class="activeItemIndex === index && 'tabs--active'" @click="activeItemIndex = index">
+    <div class="tabs">
+      <div v-for="(item, index) in data" class="tabs__item" :class="activeItemIndex === index && 'tabs--active'"
+        @click="activeItemIndex = index">
         {{ item.title }}
       </div>
     </div>
@@ -100,21 +101,24 @@ onUnmounted(() => {
     }
   }
 }
+
 .tabs {
   margin-top: 2rem;
   display: flex;
-  -webkit-box-shadow:inset 0px -3px 0px 0px rgba(215, 215, 215, 0.401);
-  -moz-box-shadow:inset 0px -3px 0px 0px rgba(215, 215, 215, 0.401);
-  box-shadow:inset 0px -3px 0px 0px rgba(215, 215, 215, 0.401);
+  -webkit-box-shadow: inset 0px -3px 0px 0px rgba(215, 215, 215, 0.401);
+  -moz-box-shadow: inset 0px -3px 0px 0px rgba(215, 215, 215, 0.401);
+  box-shadow: inset 0px -3px 0px 0px rgba(215, 215, 215, 0.401);
 
   &__item {
     padding: 1rem;
     color: var(--primary-color);
     cursor: pointer;
+
     &:hover {
       font-weight: 900;
     }
   }
+
   &--active {
     border-bottom: 3px solid var(--primary-color);
     color: var(--secondary-color);
@@ -125,6 +129,4 @@ onUnmounted(() => {
 .tabs-content {
   padding-top: 1rem;
   padding-bottom: 3rem;
-}
-
-</style>
+}</style>

@@ -97,4 +97,5 @@ const currentView = computed(() => {
       }
     }
   }
-}</style>
+}
+</style>
