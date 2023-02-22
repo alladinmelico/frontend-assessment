@@ -24,7 +24,7 @@
 ## 🍌 Explain why the result of ('b' + 'a' + + 'a' + 'a').toLowerCase() is `banana`
 We can slice that banana into sections to understand or digest it a lot better:
 - `'b' + 'a'` contatenates two strings and returns `'ba'` 
-- `+ 'a'` is an example of [unary plus](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus). We often use unary plus to convert something into a number. The idea is similar whenever we add `''` with something and it converts it into string e.g. `1 + '' = '1'` 
-- by appending`'a'` we now have `'baNaNa'` but it looks weird 
-- so `.toLowerCase()` makes it a lot readable by converting the string into lowercase
-- we now have `'banana'`, enjoy!
+- `+ 'a'` is an example of [unary plus](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus). We often use **unary plus** to convert something into a number. However, character `'a'` cannot be converted to number so it returns `NaN` or **Not-a-Number**. 
+- Adding `NaN` with a string converts it to a string `'NaN'` so `NaN + 'a' = 'NaNa'`.
+- We now have `'baNaNa'` but it looks weird! So by using `.toLowerCase()` makes it a lot readable by converting the string into lowercase
+- We now have `'banana'`, enjoy!
