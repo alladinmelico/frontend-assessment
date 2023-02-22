@@ -5,7 +5,7 @@
 1. `yarn dev`
 
 ## ⚡️ Demo
-Hover the mouse on the top of the screen to navigate between exercises.
+*Hover the mouse on the top of the screen to navigate between exercises.*
 ![2023-02-22 11-38-20](https://user-images.githubusercontent.com/40887666/220515887-8a80508c-c061-4c3e-8237-ded5898ce3f7.gif)
 
 
