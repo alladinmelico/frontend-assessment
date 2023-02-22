@@ -19,3 +19,6 @@
 
 ### Exercise 2
 ![2023-02-22 11-35-50](https://user-images.githubusercontent.com/40887666/220516000-8d413825-5023-41cf-8614-222e6d83b986.gif)
+
+
+## 🍌 Explain why the result of ('b' + 'a' + + 'a' + 'a').toLowerCase() is banana.
