@@ -25,32 +25,39 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header-banner />
-
-  <section v-if="isOnMobile" class="accordion">
-    <div v-for="(item, index) in data" class="accordion__item">
-      <div @click="activeItemIndex = index" class="accordion__item__title"
-        :class="activeItemIndex === index && 'accordion__item--active'">
-        {{ item.title }}
-        <minus-icon v-if="activeItemIndex === index" />
-        <plus-icon v-else />
-      </div>
-      <div v-if="activeItemIndex === index" class="accordion__item__content" v-html="item.content">
-      </div>
-    </div>
-  </section>
-  <section v-else class="container">
-    <div class="tabs">
-      <div v-for="(item, index) in data" class="tabs__item" :class="activeItemIndex === index && 'tabs--active'"
-        @click="activeItemIndex = index">
-        {{ item.title }}
+  <section class="second-exercise-container">
+    <div v-if="isOnMobile" class="accordion">
+      <div v-for="(item, index) in data" class="accordion__item">
+        <div @click="activeItemIndex = index" class="accordion__item__title"
+          :class="activeItemIndex === index && 'accordion__item--active'">
+          {{ item.title }}
+          <minus-icon v-if="activeItemIndex === index" />
+          <plus-icon v-else />
+        </div>
+        <div v-if="activeItemIndex === index" class="accordion__item__content" v-html="item.content">
+        </div>
       </div>
     </div>
-    <div class="tabs-content" v-html="selectedItem.content"></div>
+    <div v-else class="container-sm">
+      <div class="tabs">
+        <div v-for="(item, index) in data" class="tabs__item" :class="activeItemIndex === index && 'tabs--active'"
+          @click="activeItemIndex = index">
+          {{ item.title }}
+        </div>
+      </div>
+      <div class="tabs-content" v-html="selectedItem.content"></div>
+    </div>
   </section>
 </template>
 
 <style scoped lang="scss">
+.second-exercise-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 .accordion {
   margin: 1rem;
   padding: 1rem;

@@ -1,6 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <section class="container-fluid header">
     <picture class="header__banner">

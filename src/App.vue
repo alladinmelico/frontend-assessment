@@ -14,7 +14,7 @@ window.addEventListener('hashchange', () => {
 })
 
 const currentView = computed(() => {
-  return routes.get(currentPath.value.slice(1))
+  return routes.get(currentPath.value.slice(1) || 'first-exercise')
 })
 </script>
 
@@ -39,6 +39,8 @@ const currentView = computed(() => {
 <style scoped lang="scss">
 #app {
   text-align: center;
+  height: 100vh;
+  background-color: red;
 }
 
 .nav {
